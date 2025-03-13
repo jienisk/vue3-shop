@@ -1,3 +1,3 @@
 <template>
-    wwwwwwwww
+    www
 </template>

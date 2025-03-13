@@ -2,13 +2,13 @@
 import { getBannerAPI } from '@/apis/home'
 import { ref, onMounted } from 'vue'
 
-const bannerList = ref([])
+const bannerList = ref([]);
 
 const getBanner = async () => {
-    const res = await getBannerAPI()
-    console.log(res);
-    
-    bannerList.value = res.result
+  const res = await getBannerAPI()
+  console.log(res)
+  bannerList.value = res.result
+  console.log(bannerList.value)
 }
 
 onMounted(() => getBanner())
@@ -26,7 +26,7 @@ onMounted(() => getBanner())
         </el-carousel-item>
       </el-carousel>
     </div>
-  </template>
+</template>
 
 
 

@@ -9,18 +9,11 @@ const httpInstance = axios.create({
 httpInstance.interceptors.request.use(config => {
     // 在发送请求之前做一些处理
     return config
-}, error => {
-    // 请求错误时做一些处理
-    return Promise.reject(error)
-})
+}, e => Promise.reject(e))
 
 // 响应拦截器   
-httpInstance.interceptors.response.use(response => {
-    // 对响应数据做点什么
-    return response
-}, error => {
-    // 响应错误时做一些处理
-    return Promise.reject(error)
+httpInstance.interceptors.response.use(res => res.data, e => {
+    return Promise.reject(e)
 })
 
 export default httpInstance
