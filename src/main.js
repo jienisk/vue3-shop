@@ -13,6 +13,8 @@ import App from './App.vue'
 import '@/styles/common.scss'
 import { lazyPlugin } from './directives'
 
+import { componentPlugin } from '@/components'
+
 
 
 const app = createApp(App)
@@ -20,6 +22,7 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.use(lazyPlugin)
+app.use(componentPlugin)
 
 app.mount('#app')
 
