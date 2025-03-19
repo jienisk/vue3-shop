@@ -23,18 +23,25 @@ export const useCartStore = defineStore('cart',() =>{
       cartList.value.splice(idx, 1)
     }
 
+    const singleCheck = (skuId,selected) => {
+      const item = cartList.value.find((item)=> item.skuId === skuId)
+      item.selected = selected
+    }
+
     const allCount = computed(() => 
         cartList.value.reduce((pre, cur) => pre + cur.count, 0)
   )
     const allPrice = computed(() => 
         cartList.value.reduce((pre, cur) => pre + cur.count * cur.price, 0)
     )
+
     return {
         cartList,
         addCart,
         delCart,
         allCount,
-        allPrice
+        allPrice,
+        singleCheck
     }
 },{
     persist: true,
